@@ -70,3 +70,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.gradient-title{
+  @apply font-extrabold bg-gradient-to-br from-orange-600 to-orange-400 bg-clip-text tracking-tighter text-transparent pb-4 pr-2
+}
