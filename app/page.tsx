@@ -80,7 +80,6 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             return (
-              <>
                 <Card key={index}>
                   <CardHeader>
                     <feature.icon className="w-12 h-12 text-orange-500 mb-4 mx-auto" />
@@ -94,7 +93,6 @@ export default function Home() {
                     </p>
                   </CardContent>
                 </Card>
-              </>
             );
           })}
         </div>

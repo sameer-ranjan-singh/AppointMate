@@ -4,8 +4,11 @@ import { Button } from "./ui/button"
 import { PenBox } from "lucide-react"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 import UserMenu from "./UserMenu"
+import { checkUser } from "@/lib/checkUser"
 
-export const Header = ()=> {
+export const Header =async ()=> {
+  await checkUser()
+
     return (
         <nav className="mx-auto py-2 px-4 flex justify-between items-center shadow-md border-b-2">
             <Link href={"/"} className="flex items-center">
