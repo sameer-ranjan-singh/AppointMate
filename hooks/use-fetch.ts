@@ -1,23 +1,21 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { Username, ReturnTypeCallbackFn, CallbackFn } from '@/types/types'
 
- type CallbackFn = {
-    cb :(arg1:any) => {arg2:boolean}  
- }
- 
-const useFetch = (callback) => {
-  const [data, setData] = useState(undefined)
+ const useFetch = (callback: CallbackFn) => {
+  const [data, setData] = useState<ReturnTypeCallbackFn>({success:undefined})
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const fn = async (...args) => {
+  const fn = async (username: Username) => {
     setLoading(true)
     setError(null)
 
     try{
-        const response = await callback(...args)
+        const response = await callback(username)
         setData(response)
         setError(null)
-    }catch(error){
+    }catch(error:any){
+      console.log("error :", error)
         setError(error)
     }finally{
         setLoading(false)

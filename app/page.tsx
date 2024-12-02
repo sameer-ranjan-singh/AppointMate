@@ -51,7 +51,7 @@ export default function Home() {
             Simplify your Appointment
           </h1>
           <p className="text-lg text-gray-600 mb-10">
-            Appointment helps you manage your time effectively. Create events,
+            Appointmate helps you manage your time effectively. Create events,
             set your availability, and let other book time with you seamlessly
           </p>
           <Link href="/dashboard">

@@ -11,11 +11,8 @@ import { useEffect } from "react";
 import useFetch from "@/hooks/use-fetch";
 import { updateUsername } from "@/actions/users";
 import { BarLoader } from "react-spinners";
+import { formValues } from "@/types/types";
 
-
-type formValues = {
-  username : string | null | undefined
-}
 const Dashboard = () => {
   const { isLoaded, user } = useUser();
   const { 

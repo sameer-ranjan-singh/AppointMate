@@ -3,7 +3,6 @@
 import db from "@/lib/prisma"
 import { auth, clerkClient } from "@clerk/nextjs/server"
 
-// export async function updateUsername(username:any) {
 export const updateUsername = async (username:any)=> {
     const clerkClientServer = await clerkClient()
     const {userId } = await auth()
