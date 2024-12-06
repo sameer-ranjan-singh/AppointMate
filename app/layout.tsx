@@ -4,6 +4,7 @@ import {Inter} from "next/font/google"
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { CreateEventDrawer } from "@/components/create-event";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,6 +43,7 @@ export default function RootLayout({
             <p>Made by Sameer</p>
           </div>
         </footer>
+        <CreateEventDrawer/>
       </body>
      </html>
     </ClerkProvider>
