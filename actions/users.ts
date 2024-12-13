@@ -1,9 +1,10 @@
 "use server"
 
 import db from "@/lib/prisma"
+import { Username } from "@/types/types"
 import { auth, clerkClient } from "@clerk/nextjs/server"
 
-export const updateUsername = async (username:any)=> {
+export const updateUsername = async (username: Username)=> {
     const clerkClientServer = await clerkClient()
     const {userId } = await auth()
     if(!userId){
@@ -26,7 +27,7 @@ export const updateUsername = async (username:any)=> {
     return {success:true}
 }
 
-export async function getUserByUsername(username:any) {
+export async function getUserByUsername(username: Username) {
     const user = await db.user.findUnique({
       where: { username },
       select: {

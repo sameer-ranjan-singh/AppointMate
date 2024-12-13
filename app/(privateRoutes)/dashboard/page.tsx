@@ -22,14 +22,13 @@ const Dashboard = () => {
     handleSubmit,
     setValue,
     formState: {errors} ,
-  } = useForm<formValues>({
+  } = useForm({
     resolver: zodResolver(usernameSchema),
   });
 
   useEffect(() => {
     setValue("username", user?.username);
   }, [isLoaded]);
-
   const {loading, error, data, fn:fnUpdateUsername} = useFetch(updateUsername)
 
   const onsubmit = async (data:any) => {

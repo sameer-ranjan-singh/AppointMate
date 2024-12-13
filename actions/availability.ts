@@ -35,7 +35,7 @@ export async function getUserAvailaibilty() {
   weekdays.forEach((day)=> {
     const dayAvailability = user.availability?.days.find((d)=> d.day === day.toUpperCase())
     // sameer : "day", actual: day
-    availabilityData["day"] = {
+    availabilityData[`${day}`] = {
         isAvailable: !!dayAvailability,
         startTime: dayAvailability? dayAvailability.startTime.toISOString().slice(11,16) : "09:00",
         endTime: dayAvailability? dayAvailability.startTime.toISOString().slice(11,16) : "17:00"
@@ -45,7 +45,7 @@ export async function getUserAvailaibilty() {
 
 }
 
-export async function updateAvailability(data) {
+export async function updateAvailability(data:any) {
   const { userId } = await auth();
 
   if (!userId) {
@@ -104,7 +104,7 @@ export async function updateAvailability(data) {
   return { success: true };
 }
 
-export async function getEventAvailability(eventId) {
+export async function getEventAvailability(eventId:any) {
   const event = await db.event.findUnique({
     where: { id: eventId },
     include: {
@@ -164,8 +164,8 @@ export async function getEventAvailability(eventId) {
 
   return availableDates;
 }
-
-function generateAvailableTimeSlots(
+/* 
+export function generateAvailableTimeSlots(
   startTime,
   endTime,
   duration,
@@ -211,3 +211,4 @@ function generateAvailableTimeSlots(
 
   return slots;
 }
+*/

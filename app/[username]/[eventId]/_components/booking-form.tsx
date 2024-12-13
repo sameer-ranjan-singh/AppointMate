@@ -13,7 +13,7 @@ import { bookingSchema } from "@/app/lib/validators";
 import "react-day-picker/style.css";
 import useFetch from "@/hooks/use-fetch";
 
-export default function BookingForm({ event, availability }) {
+export default function BookingForm({ event, availability }:{ event:any, availability:any }) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
@@ -69,7 +69,7 @@ export default function BookingForm({ event, availability }) {
 
   const timeSlots = selectedDate
     ? availability.find(
-        (day) => day.date === format(selectedDate, "yyyy-MM-dd")
+        (day:any) => day.date === format(selectedDate, "yyyy-MM-dd")
       )?.slots || []
     : [];
 
